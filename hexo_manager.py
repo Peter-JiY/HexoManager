@@ -42,6 +42,7 @@ hexo_path_var = tk.StringVar(value=hexo_path)
 typora_path_var = tk.StringVar(value=typora_path)
 output_text = tk.StringVar()
 
+
 # 定义处理命令行颜色编码的函数
 def strip_ansi_codes(text):
     ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
@@ -60,6 +61,7 @@ def execute_command(command):
         error_message = strip_ansi_codes(e.stderr)
         output_text.set(error_message)
         messagebox.showerror("执行错误", error_message)  # 显示错误信息
+
 
 # 打开 .md 文件的函数
 def open_md_file(post_name):
@@ -139,12 +141,8 @@ def show_main_page():
         else:
             output_text.set("Hexo 路径未设置！")
 
-
-
     btn_create_post = tk.Button(post_frame, text="新建文章", command=create_post)
     btn_create_post.place(x=70, y=30)
-
-
 
     # 启动 GUI 主循环
     root.mainloop()
